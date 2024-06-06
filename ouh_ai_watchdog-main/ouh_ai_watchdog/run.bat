@@ -1,0 +1,1 @@
+C:\PATH\TO\miniconda3\condabin\conda.bat run -n ai_inference python C:\PATH\TO\ouh_ai_watchdog\main.py --config C:\PATH\TO\watchdogconfig.json

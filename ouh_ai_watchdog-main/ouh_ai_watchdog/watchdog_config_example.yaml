@@ -1,0 +1,12 @@
+savepath_str: 'C:\PATH\TO\watchdog_config.yaml' # Path to save the config file
+logging_format: '[%(asctime)s] %(levelname)-8s %(name)-12s: %(message)s' # Format of the log messages
+logging_level_str: 'DEBUG' # Logging level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+logging_dir_str: 'C:\PATH\TO\' # Path to the logging directory
+logging_days_to_keep: 31 # How many days of the logs to keep
+scan_directory_str: 'C:\PATH\TO\SharedDir' # Directory to scan for new files
+scan_interval: 5 # Seconds between scans
+ai_config_filename: 'aiconfig.txt' # Name of the AI config file
+inference_script_path_str: 'C:\PATH\TO\main.py' # Path to the inference script
+max_restarts: 5 # How many times the inference script can be restarted within a window of max_restart_window_sec seconds
+max_restart_window_sec: 360 # Window in which max_restarts restarts are allowed
+dry_run: False # If True, the inference script will not be started
