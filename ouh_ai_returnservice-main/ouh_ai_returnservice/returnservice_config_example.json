@@ -1,0 +1,19 @@
+{
+  "savepath_str": "C:\\PATH\\TO\\returnservice_config_example.json",
+  "scan_directory_str": "C:\\PATH\\TO\\Shared_Dir",
+  "logging_format": "[%(asctime)s] %(levelname)-8s %(name)-12s: %(message)s",
+  "logging_level_str": "INFO",
+  "logging_level_pynetdicom_str": "WARNING",
+  "logpath_str": "C:\\PATH\\TO\\log_dir",
+  "ai_config_filename": "aiconfig.txt",
+  "error_file": "error.txt",
+  "ae_title": "placeholder_aet",
+  "return_dicom_str": "ReturnDicomNode",
+  "return_directory_str": "ReturnDirectory",
+  "scan_interval_sec": 1,
+  "max_restarts": 5,
+  "max_restart_window_sec": 360,
+  "days_before_deletion": 30,
+  "archive_directory_str": "C:\\PATH\\TO\\archive",
+  "do_archive": true
+}
