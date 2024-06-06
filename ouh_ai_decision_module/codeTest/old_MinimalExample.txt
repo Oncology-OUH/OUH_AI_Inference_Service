@@ -1,0 +1,42 @@
+#Config example file for trigering a specific AI model
+
+#These check are aimed at data coming from the MR scanner
+	T1_1:(0018,0015) Body Part Examined == "PELVIS"
+	T1_2:(0018,0015) Body Part Examined == "PELVIS_ver2"
+	
+	C1_1 : (T1_1 || T1_2)
+	
+	T1_3:(0018,0023) MR Acquisition Type ~= "2D"
+	T1_4:(0018,0050) Slice Thickness > "2"
+	T1_5:(0018,0050) Slice Thickness < "5"
+	
+	C1_2:C1_1 && T1_3 && T1_4 && T1_5
+
+#These check are aimed at data from the MR scanne at the department of radiology (demo example)
+	T2_1:(0018,0015) Body Part Examined == "PELVIS_ver17"
+	T2_2:(0018,0015) Body Part Examined == "PELVIS_ver19"
+	T2_3:(0018,0023) MR Acquisition Type ~= "3D"
+	T2_4:(0018,0050) Slice Thickness > "2.5"
+	
+	C2_1:(T2_1 || T2_2) && T2_3 && T2_4
+
+#Final trigger
+	Trigger:C1_2 || C2_1
+
+#Information to the AI system
+	ModelName:"MyBestProstateModel" #This name should fit the name on the AI model including version number
+	ModelHash:"drhfjkhsdjkfhkjh"
+	NiceLevel:"2" #A numeric positive integer value that defines how fast the segmentaion will be processed in case more than one segmentation is required simultaneously. A low value will be prioritised first. Initially, "1" will be used for data from the online MR-linac, while "2" from other modalities.
+	InferenceMaxRunTime : "65"
+	SendDirectory:"L:\AfdR\Radfstrb\ArcCHECK"
+	ReturnDicomNodeIP_1:"10.161.6.246" #If dicom is used all both IP, PORT and AET should be present
+	ReturnDicomNodePort_1:"104"
+	ReturnDicomNodeAET_1: "DestinationAET"
+	ReturnDirectory_1:"\\Rsyd.net\Appl$\_Shared\OUH\Radfys_drift\Klinisk_og_QA_data\BrachyPatientQA\test"
+	ReturnDicomNodeIP_2:"hostname2" #If dicom is used all both IP, PORT, and AET should be present
+	ReturnDicomNodePort_2:"104"
+	ReturnDicomNodeAET_2: "DestinationAET2"
+	ReturnDirectory_2:"L:\AfdR\Radfstrb\ArcCHECK"
+	EmptyStructWithModelName: "true"
+	Struct_1: "InterStructName1" "Bladder_AI" "Organ" "[255,0,0]" "2" #This line can configure struct name, struct type, colour, and structure orders. The values are "internal name", "output name", "[ r,g,b]", and "order". The internal name is the structure name delivered if not changed in this config file. "output name" is the name the user would like as output. The "[r,g,b]" is the colours red, green, and blue and will take integer values in the range 0-255. "Order" will reflect the ordering of the structures in the RT-struct output file (values are unique integers starting from one and increasing by one for each struct config line)
+	Struct_2: "InterStructName2" "Lung_AI" "Organ" "[0,255,0]" "1"

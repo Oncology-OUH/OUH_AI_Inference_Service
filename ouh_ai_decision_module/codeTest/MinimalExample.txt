@@ -1,0 +1,28 @@
+#These check are aimed at data coming from the MR scanner
+	T1_1:(0018,0015) Body Part Examined == "PELVIS"
+	T1_2:(0018,0023) MR Acquisition Type == "3D"
+	T1_3:(0018,0050) Slice Thickness >= "2"
+	T1_4:(0018,0050) Slice Thickness <= "5"
+	T1_5:(0010,0040) Patient's Sex == "M"
+	T1_6:(0008,1090) Manufacturer's Model Name == "Marlin"
+	T1_7:(0018,5100) Patient Position == "HFS"
+	T1_8:(0008,0060) Modality == "MR"
+	T1_9:(0008,103E) Series Description=="T2 3D Tra OUH Pelvis2"
+	
+	C1_1: T1_1 && T1_2 && T1_3 && T1_4 && T1_5 && T1_6 && T1_7 && T1_8 && T1_9
+
+#Final trigger
+	Trigger:C1_1
+
+#Information to the AI system
+	ModelName:"Prostate_MRL" #This name should fit the name on the AI model including version number
+	ModelHash:"1e79d2b227a0829e73c5be6144d2f4ae"
+	SendDirectory:"\\os210378\AI_Inference"
+	NiceLevel:"2"
+	ReturnDicomNodeIP_1:"srvodedcmrfl01v.rsyd.net" #If dicom is used all both IP, PORT and AET should be present
+	ReturnDicomNodePort_1:"106"
+	ReturnDicomNodeAET_1: "DUMP"
+	ReturnDirectory:"\\prapprflstg01\TempIdentifiableData\CB\AI_model_results\ProstateModel"
+	Struct_1: "InterStructName1" "Bladder_AI" "Organ" "[255,0,0]" "2" #This line can configure struct name, struct type, colour, and structure orders. The values are "internal name", "output name", "[ r,g,b]", and "order". The internal name is the structure name delivered if not changed in this config file. "output name" is the name the user would like as output. The "[r,g,b]" is the colours red, green, and blue and will take integer values in the range 0-255. "Order" will reflect the ordering of the structures in the RT-struct output file (values are unique integers starting from one and increasing by one for each struct config line)
+	Struct_2: "InterStructName2" "Prostate_AI" "Organ" "[0,255,0]" "1"
+

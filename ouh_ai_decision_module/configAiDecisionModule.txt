@@ -1,0 +1,17 @@
+#This file is an installation file for the AI decision module used at OUH to distribute Dicom files to the relevant AI model.
+
+#Location of the config files that describe the rules for the individual models
+	pathToUserConfigFiles:"C:\MIM_scripting_matlab\UserAiConfigFiles"
+
+#Information about the Mungo database and where mungosh is installed
+	ip:"127.0.0.1"
+	port: "34543"
+	dataBaseName: "metabase_v2"
+	fileNameForMongosh: "C:\MIM_scripting_matlab\mongosh-2.0.2-win32-x64\bin\mongosh"
+
+#Position of log files for the AI decision module
+	pathToLogFilesDir:"\\127.0.0.1\AI_Log"
+	daysToKeepLogFiles:"30"
+
+#The name of the patient list in MIM that is used for the AI data. Only data from this patientlist will be used
+	mimPatientListName : "AIDecisionPtList"

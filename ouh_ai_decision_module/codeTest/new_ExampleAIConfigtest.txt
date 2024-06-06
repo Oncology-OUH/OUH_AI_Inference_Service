@@ -1,0 +1,9 @@
+ModelName:"Prostate_MRL" #This name should fit the name on the AI model including version number
+ModelHash:"1e79d2b227a0829e73c5be6144d2f4ae"
+NiceLevel:"2"
+ReturnDicomNodeIP_1:"srvodedcmrfl01v.rsyd.net" #If dicom is used all both IP, PORT and AET should be present
+ReturnDicomNodePort_1:"106"
+ReturnDicomNodeAET_1: "DUMP"
+ReturnDirectory:"\\prapprflstg01\TempIdentifiableData\CB\AI_model_results\ProstateModel"
+Struct_1: "InterStructName1" "Bladder_AI" "Organ" "[255,0,0]" "2" #This line can configure struct name, struct type, colour, and structure orders. The values are "internal name", "output name", "[ r,g,b]", and "order". The internal name is the structure name delivered if not changed in this config file. "output name" is the name the user would like as output. The "[r,g,b]" is the colours red, green, and blue and will take integer values in the range 0-255. "Order" will reflect the ordering of the structures in the RT-struct output file (values are unique integers starting from one and increasing by one for each struct config line)
+Struct_2: "InterStructName2" "Prostate_AI" "Organ" "[0,255,0]" "1"
