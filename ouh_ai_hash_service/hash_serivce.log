@@ -1,0 +1,5 @@
+[2024-07-03 09:04:48,374] INFO     HashService : Hashing Prostate_MRL
+[2024-07-03 09:04:49,966] INFO     HashService : Hashing Cervix_Brachy_MR
+[2024-07-03 09:04:52,264] INFO     HashService : Hashing HN_DAHANCA_CT
+[2024-07-03 09:04:53,877] INFO     HashService : Hashing FemalePelvis_MRL
+[2024-07-03 09:04:55,489] INFO     HashService : Hashing MalePelvis_MRL
